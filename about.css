@@ -1,0 +1,584 @@
+/* ==========================================
+   ABOUT PAGE
+   Uses the shared style.css
+========================================== */
+
+/* PAGE CONTAINER */
+
+.about-page {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 40px, 1000px);
+    margin: 0 auto;
+    padding: 125px 0 80px;
+    color: inherit;
+}
+
+/* PAGE HEADING */
+
+.about-heading {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.about-eyebrow {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #b99aff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.about-heading h1 {
+    margin: 0 0 10px;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.about-heading p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+
+/* INFORMATION CARDS */
+
+.about-info-card,
+.about-bio-card {
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(167, 124, 255, 0.24);
+    border-radius: 22px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* PROFILE HEADER */
+
+.about-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 25px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid rgba(167, 124, 255, 0.2);
+}
+
+.about-profile-photo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 3px solid #a77cff;
+    box-shadow: 0 0 18px rgba(167, 124, 255, 0.2);
+}
+
+.about-profile-heading {
+    min-width: 0;
+}
+
+.about-profile-heading h2 {
+    margin: 0 0 7px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.about-profile-heading p {
+    margin: 0;
+    color: #b99aff;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* SECTION HEADINGS */
+
+.about-section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.about-section-title h2 {
+    flex-shrink: 0;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.about-title-line {
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: rgba(167, 124, 255, 0.3);
+}
+
+/* BASIC INFORMATION GRID */
+
+.about-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 25px 36px;
+}
+
+.about-detail {
+    min-width: 0;
+}
+
+.about-detail h3 {
+    margin: 0 0 8px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.65;
+}
+
+.about-detail p,
+.about-detail a {
+    margin: 0;
+    font-size: 0.91rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.about-detail a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.about-detail a:hover {
+    color: #b99aff;
+}
+
+/* EDUCATIONAL SUBTEXT */
+
+.about-detail .detail-subtext {
+    margin-top: 3px;
+    font-size: 0.83rem;
+    opacity: 0.7;
+}
+
+/* EXPERIENCE LIST */
+
+.about-experience-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.89rem;
+    line-height: 1.8;
+}
+
+.about-experience-list li {
+    padding-left: 3px;
+    margin-bottom: 5px;
+}
+
+.about-experience-list li:last-child {
+    margin-bottom: 0;
+}
+
+.about-experience-list li::marker {
+    color: #b99aff;
+}
+
+/* AREAS OF SPECIALIZATION
+   This section sits beside Experience. */
+
+.about-specializations {
+    align-self: start;
+}
+
+.about-specialization-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.about-specialization-list span {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: rgba(167, 124, 255, 0.12);
+    border: 1px solid rgba(167, 124, 255, 0.2);
+    font-size: 0.81rem;
+    line-height: 1.5;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.about-specialization-list span:hover {
+    background: rgba(167, 124, 255, 0.2);
+    border-color: rgba(167, 124, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* WHO I AM CARD */
+
+.about-bio-card {
+    margin-top: 25px;
+}
+
+.about-bio-card .about-section-title {
+    margin-bottom: 16px;
+}
+
+.about-bio-card > p {
+    margin: 0;
+    font-size: 0.94rem;
+    line-height: 1.95;
+    text-align: justify;
+    text-indent: 2em;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    opacity: 0.85;
+}
+
+/* LIGHT MODE */
+
+body.light-mode .about-page {
+    color: #30243e;
+}
+
+body.light-mode .about-eyebrow {
+    color: #7950b5;
+}
+
+body.light-mode .about-info-card,
+body.light-mode .about-bio-card {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(124, 77, 196, 0.2);
+    box-shadow: 0 12px 35px rgba(70, 45, 100, 0.08);
+}
+
+body.light-mode .about-profile-photo {
+    border-color: #9164d8;
+}
+
+body.light-mode .about-profile-heading p {
+    color: #7950b5;
+}
+
+body.light-mode .about-title-line {
+    background: rgba(124, 77, 196, 0.24);
+}
+
+body.light-mode .about-profile-header {
+    border-color: rgba(124, 77, 196, 0.18);
+}
+
+body.light-mode .about-specialization-list span {
+    background: rgba(124, 77, 196, 0.08);
+    border-color: rgba(124, 77, 196, 0.18);
+}
+
+body.light-mode .about-specialization-list span:hover {
+    background: rgba(124, 77, 196, 0.15);
+}
+
+body.light-mode .about-experience-list li::marker {
+    color: #7950b5;
+}
+
+/* PAGE TRANSITION */
+
+body {
+    opacity: 1;
+    animation: pageFadeIn 0.45s ease both;
+}
+
+body.page-leaving {
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+    .about-page {
+        width: min(100% - 32px, 1000px);
+        padding: 115px 0 65px;
+    }
+
+    .about-info-card,
+    .about-bio-card {
+        padding: 26px;
+    }
+
+    .about-profile-photo {
+        width: 88px;
+        height: 88px;
+    }
+
+    .about-profile-heading h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-details-grid {
+        gap: 24px 25px;
+    }
+
+    .about-specialization-list {
+        gap: 8px;
+    }
+
+    .about-specialization-list span {
+        padding: 7px 10px;
+        font-size: 0.78rem;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+    .about-page {
+        width: calc(100% - 26px);
+        padding: 100px 0 50px;
+    }
+
+    .about-heading {
+        margin-bottom: 25px;
+    }
+
+    .about-heading p {
+        font-size: 0.86rem;
+    }
+
+    .about-info-card,
+    .about-bio-card {
+        padding: 21px;
+        border-radius: 17px;
+    }
+
+    .about-profile-header {
+        gap: 14px;
+        padding-bottom: 21px;
+        margin-bottom: 22px;
+    }
+
+    .about-profile-photo {
+        width: 72px;
+        height: 72px;
+    }
+
+    .about-profile-heading h2 {
+        font-size: 1.05rem;
+    }
+
+    .about-profile-heading p {
+        font-size: 0.8rem;
+    }
+
+    .about-section-title {
+        gap: 10px;
+    }
+
+    .about-section-title h2 {
+        font-size: 1.05rem;
+    }
+
+    .about-details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about-detail h3 {
+        font-size: 0.72rem;
+    }
+
+    .about-detail p,
+    .about-detail a {
+        font-size: 0.88rem;
+    }
+
+    .about-detail .detail-subtext {
+        font-size: 0.81rem;
+    }
+
+    .about-experience-list {
+        font-size: 0.86rem;
+    }
+
+    .about-specialization-list {
+        gap: 8px;
+    }
+
+    .about-specialization-list span {
+        padding: 7px 10px;
+        font-size: 0.78rem;
+    }
+
+    .about-bio-card .about-section-title {
+        margin-bottom: 13px;
+    }
+
+    .about-bio-card > p {
+        font-size: 0.87rem;
+        line-height: 1.85;
+        text-align: justify;
+        text-indent: 1.5em;
+    }
+}
+
+/* REDUCE ANIMATION WHEN REQUESTED */
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+        transition: none;
+    }
+
+    .about-specialization-list span {
+        transition: none;
+    }
+}
+
+/* PAGE HEADING — MATCH THE SKILLS PAGE */
+
+.about-heading h1 {
+    margin: 0 0 15px;
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+}
+
+.about-heading h1 span {
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #bd91ff,
+        #ffffff
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: aboutTextShine 5s linear infinite;
+}
+
+@keyframes aboutTextShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* LIGHT MODE */
+body.light-mode .about-heading h1 span {
+    background: linear-gradient(
+        90deg,
+        #321650,
+        #7841b1,
+        #321650
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* REDUCE ANIMATION WHEN REQUESTED */
+@media (prefers-reduced-motion: reduce) {
+    .about-heading h1 span {
+        animation: none;
+    }
+}
+
+
+/* ========================================
+   ANIMATED THEME TOGGLE ICON
+======================================== */
+
+#theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+#theme-icon svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+    overflow: visible;
+    animation: epicIconAppear 0.45s cubic-bezier(.2, .8, .2, 1);
+}
+
+#theme-icon .epic-sun {
+    filter:
+        drop-shadow(0 0 3px rgba(255, 198, 110, .8))
+        drop-shadow(0 0 8px rgba(255, 139, 202, .45));
+}
+
+#theme-icon .epic-moon {
+    filter:
+        drop-shadow(0 0 4px rgba(205, 166, 255, .9))
+        drop-shadow(0 0 10px rgba(130, 80, 232, .5));
+}
+
+#theme-icon .epic-sun-rays {
+    transform-box: view-box;
+    transform-origin: center;
+    animation: epicSunSpin 24s linear infinite;
+}
+
+#theme-toggle:hover #theme-icon .epic-sun-rays {
+    animation-duration: 5s;
+}
+
+#theme-toggle:hover #theme-icon svg {
+    filter: drop-shadow(0 0 9px rgba(199, 162, 255, .9));
+}
+
+@keyframes epicSunSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes epicIconAppear {
+    from {
+        opacity: 0;
+        transform: scale(.55) rotate(-25deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #theme-icon svg,
+    #theme-icon .epic-sun-rays {
+        animation: none;
+    }
+}

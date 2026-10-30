@@ -1,0 +1,1239 @@
+/* =========================================
+   CV PAGE
+   Purple glass theme with flowing gradients,
+   elegant document artwork and premium hovers.
+========================================= */
+
+:root {
+    --cv-purple: #bd91ff;
+    --cv-lavender: #d9b5ff;
+    --cv-violet: #8c5be8;
+    --cv-text: #f8f5ff;
+    --cv-muted: #b7a9cb;
+    --cv-panel: rgba(255, 255, 255, 0.045);
+    --cv-border: rgba(195, 155, 255, 0.2);
+    --cv-line: rgba(205, 175, 255, 0.15);
+}
+
+/* PAGE */
+
+.cv-page {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 155px 0 100px;
+}
+
+/* HEADING */
+
+.cv-heading {
+    max-width: 760px;
+    margin: 0 auto 54px;
+    text-align: center;
+    animation: cvFadeUp 0.8s ease both;
+}
+
+.cv-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    color: #c9a5ff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.cv-eyebrow::before,
+.cv-eyebrow::after {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b98aff);
+}
+
+.cv-eyebrow::after {
+    transform: rotate(180deg);
+}
+
+.cv-heading h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.7rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -2.5px;
+    line-height: 1.15;
+}
+
+.cv-heading h1 span {
+    display: inline-block;
+    background: linear-gradient(
+        100deg,
+        #ffffff 0%,
+        #c7a2ff 28%,
+        #f0dcff 48%,
+        #a777f5 68%,
+        #ffffff 100%
+    );
+    background-size: 250% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: cvTitleFlow 7s linear infinite;
+}
+
+.cv-heading > p {
+    margin: 19px auto 0;
+    max-width: 570px;
+    color: var(--cv-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* MAIN GLASS PANEL */
+
+.cv-panel {
+    --panel-glow: rgba(159, 100, 255, 0.13);
+
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+    padding: clamp(30px, 5vw, 65px);
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid var(--cv-border);
+    border-radius: 30px;
+    background:
+        radial-gradient(
+            ellipse at 0% 0%,
+            rgba(174, 111, 255, 0.13),
+            transparent 48%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+    box-shadow:
+        0 25px 75px rgba(0, 0, 0, 0.19),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition:
+        border-color 0.45s ease,
+        box-shadow 0.45s ease,
+        background 0.45s ease,
+        transform 0.45s ease;
+    animation: cvFadeUp 0.9s 0.12s ease both;
+}
+
+.cv-panel::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(202, 160, 255, 0.2),
+        transparent 28%,
+        transparent 68%,
+        rgba(147, 105, 255, 0.14)
+    );
+    opacity: 0.55;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+}
+
+.cv-panel::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 360px;
+    height: 360px;
+    right: -190px;
+    bottom: -230px;
+    border: 1px solid rgba(188, 139, 255, 0.15);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 28px rgba(188, 139, 255, 0.025),
+        0 0 0 58px rgba(188, 139, 255, 0.02);
+    pointer-events: none;
+}
+
+.cv-panel:hover {
+    --panel-glow: rgba(159, 100, 255, 0.2);
+
+    border-color: rgba(199, 162, 255, 0.48);
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.26),
+        0 0 45px var(--panel-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.13);
+    transform: translateY(-5px);
+}
+
+.cv-panel:hover::before {
+    opacity: 1;
+}
+
+/* DOCUMENT ILLUSTRATION */
+
+.cv-document-art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 340px;
+    isolation: isolate;
+}
+
+.cv-document-art::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(145, 82, 255, 0.16);
+    filter: blur(45px);
+    transition:
+        transform 0.6s ease,
+        background 0.6s ease;
+}
+
+.cv-panel:hover .cv-document-art::before {
+    transform: scale(1.25);
+    background: rgba(173, 111, 255, 0.24);
+}
+
+.cv-paper {
+    position: relative;
+    width: 215px;
+    min-height: 280px;
+    padding: 27px 23px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 12px;
+    background: linear-gradient(145deg, #fff 0%, #f3eaff 100%);
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.25),
+        0 0 0 8px rgba(198, 159, 255, 0.055);
+    transform: rotate(-4deg);
+    transition:
+        transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 0.6s ease;
+}
+
+.cv-panel:hover .cv-paper {
+    transform: translateY(-7px) rotate(0deg) scale(1.035);
+    box-shadow:
+        0 32px 65px rgba(0, 0, 0, 0.3),
+        0 0 35px rgba(185, 137, 255, 0.2);
+}
+
+.paper-top-line {
+    height: 4px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #8f5ae8, #d9b5ff, #9b6cf0);
+}
+
+.paper-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e6d9f7;
+}
+
+.paper-avatar {
+    display: grid;
+    place-items: center;
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    color: #8f5ae8;
+    background: #eadcff;
+}
+
+.paper-avatar svg,
+.cv-floating-icon svg,
+.file-icon svg,
+.cv-button svg,
+.cv-note svg {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.paper-heading-lines {
+    display: grid;
+    gap: 6px;
+    flex: 1;
+}
+
+.paper-heading-lines span,
+.paper-section > span:not(.paper-section-title) {
+    display: block;
+    height: 5px;
+    border-radius: 5px;
+    background: #dfd3ee;
+}
+
+.paper-heading-lines span:first-child {
+    width: 90%;
+    height: 7px;
+    background: #a17ad5;
+}
+
+.paper-heading-lines span:nth-child(2) {
+    width: 75%;
+}
+
+.paper-heading-lines span:nth-child(3) {
+    width: 55%;
+}
+
+.paper-section {
+    display: grid;
+    gap: 7px;
+    margin-top: 17px;
+}
+
+.paper-section-title {
+    width: 48%;
+    height: 6px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    background: #9e73d9;
+}
+
+.paper-section > span:not(.paper-section-title) {
+    width: 100%;
+    height: 4px;
+    background: #e5dcef;
+}
+
+.paper-section .short-line {
+    width: 65% !important;
+}
+
+.cv-orbit {
+    position: absolute;
+    z-index: -1;
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(195, 151, 255, 0.15);
+    border-radius: 50%;
+    transition:
+        transform 0.7s ease,
+        border-color 0.7s ease;
+}
+
+.orbit-two {
+    width: 335px;
+    height: 335px;
+    border-style: dashed;
+    border-color: rgba(195, 151, 255, 0.11);
+}
+
+.cv-panel:hover .orbit-one {
+    transform: scale(1.09) rotate(12deg);
+    border-color: rgba(195, 151, 255, 0.34);
+}
+
+.cv-panel:hover .orbit-two {
+    transform: scale(1.04) rotate(-10deg);
+    border-color: rgba(195, 151, 255, 0.24);
+}
+
+.cv-floating-icon {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 55px;
+    height: 55px;
+    color: #e0c4ff;
+    border: 1px solid rgba(202, 166, 255, 0.3);
+    border-radius: 17px;
+    background: rgba(57, 32, 88, 0.92);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(12px);
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.floating-icon-one {
+    top: 34px;
+    right: 7px;
+    transform: rotate(8deg);
+}
+
+.floating-icon-two {
+    bottom: 26px;
+    left: 5px;
+    color: #a7edcf;
+    transform: rotate(-8deg);
+}
+
+.cv-panel:hover .floating-icon-one {
+    transform: translate(4px, -8px) rotate(0deg);
+    box-shadow: 0 14px 35px rgba(169, 115, 255, 0.2);
+}
+
+.cv-panel:hover .floating-icon-two {
+    transform: translate(-3px, 5px) rotate(0deg);
+    box-shadow: 0 14px 35px rgba(115, 236, 189, 0.12);
+}
+
+/* CV DETAILS */
+
+.cv-content {
+    min-width: 0;
+}
+
+.cv-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 12px;
+    color: #d5b8ff;
+    border: 1px solid rgba(193, 151, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(159, 100, 255, 0.09);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #b993ff;
+    box-shadow: 0 0 12px rgba(185, 147, 255, 0.8);
+}
+
+.cv-content h2 {
+    margin: 22px 0 12px;
+    color: var(--cv-text);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.3;
+}
+
+.cv-description {
+    margin: 0;
+    max-width: 450px;
+    color: var(--cv-muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+/* FILE ROW */
+
+.cv-file-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 28px 0;
+    padding: 17px;
+    border: 1px solid rgba(191, 151, 255, 0.17);
+    border-radius: 17px;
+    background: rgba(15, 6, 31, 0.28);
+    transition:
+        border-color 0.35s ease,
+        background 0.35s ease,
+        transform 0.35s ease;
+}
+
+.cv-file-info:hover {
+    transform: translateX(4px);
+    border-color: rgba(194, 154, 255, 0.4);
+    background: rgba(145, 91, 220, 0.1);
+}
+
+.file-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 47px;
+    width: 47px;
+    height: 47px;
+    color: #d4b2ff;
+    border: 1px solid rgba(194, 154, 255, 0.22);
+    border-radius: 13px;
+    background: rgba(164, 108, 255, 0.12);
+}
+
+.file-details {
+    display: grid;
+    gap: 5px;
+    min-width: 0;
+}
+
+.file-details strong {
+    overflow-wrap: anywhere;
+    color: var(--cv-text);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.file-details span {
+    color: var(--cv-muted);
+    font-size: 0.72rem;
+}
+
+.file-extension {
+    margin-left: auto;
+    padding: 6px 8px;
+    color: #d5b7ff;
+    border: 1px solid rgba(194, 154, 255, 0.24);
+    border-radius: 8px;
+    background: rgba(164, 108, 255, 0.1);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* ACTION BUTTONS */
+
+.cv-actions {
+    display: grid;
+    gap: 13px;
+}
+
+.cv-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 57px;
+    padding: 15px 20px;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    transition:
+        transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        color 0.35s ease,
+        background 0.35s ease;
+}
+
+.cv-button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -60%;
+    left: -100%;
+    width: 65%;
+    height: 220%;
+    transform: rotate(22deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.32),
+        transparent
+    );
+    transition: left 0.65s ease;
+}
+
+.cv-button:hover::before {
+    left: 150%;
+}
+
+.cv-button svg {
+    flex: 0 0 21px;
+    width: 21px;
+    height: 21px;
+    transition: transform 0.35s ease;
+}
+
+/* SOFTER PURPLE DOWNLOAD BUTTON */
+
+.cv-button-primary {
+    color: #fff;
+    border-color: rgba(221, 204, 246, 0.5);
+    background: linear-gradient(
+        110deg,
+        #8269a8 0%,
+        #9c83c0 50%,
+        #786195 100%
+    );
+    background-size: 180% 100%;
+    box-shadow:
+        0 8px 20px rgba(93, 69, 125, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cv-button-primary:hover {
+    transform: translateY(-4px);
+    background-position: 100% 50%;
+    border-color: rgba(232, 219, 250, 0.7);
+    box-shadow:
+        0 12px 26px rgba(93, 69, 125, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* DOWNLOAD CV — DEEPER PURPLE */
+.cv-button-primary {
+    color: #fff;
+    border-color: rgba(201, 167, 255, 0.35);
+    background: linear-gradient(
+        110deg,
+        #68449a 0%,
+        #8057b4 50%,
+        #5d3b8a 100%
+    );
+    background-size: 180% 100%;
+    box-shadow:
+        0 8px 20px rgba(71, 42, 112, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transition:
+        transform 0.3s ease,
+        background-position 0.4s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.cv-button-primary:hover {
+    transform: translateY(-4px);
+    background-position: 100% 50%;
+    border-color: rgba(218, 195, 255, 0.6);
+    box-shadow:
+        0 12px 26px rgba(71, 42, 112, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* LIGHT MODE */
+html.light-mode .cv-button-primary,
+body.light-mode .cv-button-primary {
+    color: #fff;
+    border-color: rgba(111, 76, 153, 0.35);
+    background: linear-gradient(
+        110deg,
+        #735092 0%,
+        #8966aa 50%,
+        #63427f 100%
+    );
+    background-size: 180% 100%;
+    box-shadow:
+        0 8px 20px rgba(83, 59, 112, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+html.light-mode .cv-button-primary:hover,
+body.light-mode .cv-button-primary:hover {
+    border-color: rgba(111, 76, 153, 0.55);
+    box-shadow:
+        0 12px 26px rgba(83, 59, 112, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cv-button-secondary {
+    color: #e4d1ff;
+    border-color: rgba(194, 154, 255, 0.3);
+    background: rgba(149, 93, 222, 0.07);
+}
+
+.cv-button-secondary:hover {
+    transform: translateY(-3px);
+    color: #fff;
+    border-color: rgba(203, 169, 255, 0.68);
+    background: rgba(149, 93, 222, 0.18);
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(179, 132, 255, 0.1);
+}
+
+.cv-button-secondary:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.cv-button:focus-visible {
+    outline: 3px solid #d8b7ff;
+    outline-offset: 4px;
+}
+
+.cv-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 19px 0 0;
+    color: var(--cv-muted);
+    font-size: 0.73rem;
+    line-height: 1.7;
+}
+
+.cv-note svg {
+    flex: 0 0 17px;
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+    color: #b993ff;
+}
+
+/* LIGHT MODE — STILL RICH, NOT PLAIN */
+
+html.light-mode .cv-page,
+body.light-mode .cv-page {
+    --cv-text: #281641;
+    --cv-muted: #68547f;
+    --cv-border: rgba(112, 70, 165, 0.22);
+    --cv-line: rgba(112, 70, 165, 0.15);
+}
+
+html.light-mode .cv-heading h1,
+body.light-mode .cv-heading h1 {
+    color: #281641;
+}
+
+html.light-mode .cv-heading h1 span,
+body.light-mode .cv-heading h1 span {
+    background-image: linear-gradient(
+        100deg,
+        #432267 0%,
+        #8750cb 28%,
+        #c08bff 48%,
+        #7240b5 68%,
+        #432267 100%
+    );
+    background-size: 250% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html.light-mode .cv-eyebrow,
+body.light-mode .cv-eyebrow {
+    color: #7746b6;
+}
+
+html.light-mode .cv-panel,
+body.light-mode .cv-panel {
+    --panel-glow: rgba(139, 85, 207, 0.12);
+    border-color: rgba(129, 82, 184, 0.22);
+    background:
+        radial-gradient(
+            ellipse at 0% 0%,
+            rgba(177, 130, 238, 0.2),
+            transparent 48%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.94),
+            rgba(246, 238, 255, 0.88)
+        );
+    box-shadow:
+        0 25px 65px rgba(76, 42, 112, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+html.light-mode .cv-panel:hover,
+body.light-mode .cv-panel:hover {
+    border-color: rgba(135, 80, 203, 0.48);
+    box-shadow:
+        0 28px 70px rgba(76, 42, 112, 0.16),
+        0 0 35px rgba(155, 104, 220, 0.13),
+        inset 0 1px 0 #fff;
+}
+
+html.light-mode .cv-panel::before,
+body.light-mode .cv-panel::before {
+    background: linear-gradient(
+        120deg,
+        rgba(145, 87, 210, 0.15),
+        transparent 30%,
+        transparent 68%,
+        rgba(184, 135, 239, 0.17)
+    );
+}
+
+html.light-mode .cv-orbit,
+body.light-mode .cv-orbit {
+    border-color: rgba(129, 82, 184, 0.18);
+}
+
+html.light-mode .orbit-two,
+body.light-mode .orbit-two {
+    border-color: rgba(129, 82, 184, 0.14);
+}
+
+html.light-mode .cv-floating-icon,
+body.light-mode .cv-floating-icon {
+    color: #7041ad;
+    border-color: rgba(133, 82, 186, 0.24);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 12px 30px rgba(90, 53, 133, 0.12);
+}
+
+html.light-mode .floating-icon-two,
+body.light-mode .floating-icon-two {
+    color: #247e63;
+}
+
+html.light-mode .cv-status,
+body.light-mode .cv-status {
+    color: #7041ad;
+    border-color: rgba(133, 82, 186, 0.22);
+    background: linear-gradient(
+        110deg,
+        rgba(175, 129, 230, 0.15),
+        rgba(227, 208, 255, 0.32)
+    );
+}
+
+html.light-mode .status-dot,
+body.light-mode .status-dot {
+    background: #8d55d0;
+    box-shadow: 0 0 10px rgba(141, 85, 208, 0.35);
+}
+
+html.light-mode .cv-file-info,
+body.light-mode .cv-file-info {
+    border-color: rgba(132, 82, 186, 0.19);
+    background: linear-gradient(
+        120deg,
+        rgba(244, 234, 255, 0.92),
+        rgba(255, 255, 255, 0.82)
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light-mode .cv-file-info:hover,
+body.light-mode .cv-file-info:hover {
+    border-color: rgba(132, 82, 186, 0.4);
+    background: linear-gradient(
+        120deg,
+        rgba(235, 216, 255, 0.98),
+        rgba(255, 255, 255, 0.96)
+    );
+}
+
+html.light-mode .file-icon,
+body.light-mode .file-icon {
+    color: #7746b6;
+    border-color: rgba(132, 82, 186, 0.22);
+    background: linear-gradient(145deg, #f0e1ff, #fff);
+}
+
+html.light-mode .file-extension,
+body.light-mode .file-extension {
+    color: #7041ad;
+    border-color: rgba(132, 82, 186, 0.23);
+    background: linear-gradient(120deg, #f0e2ff, #fff);
+}
+
+/* SOFTER PURPLE DOWNLOAD BUTTON IN LIGHT MODE */
+
+html.light-mode .cv-button-primary,
+body.light-mode .cv-button-primary {
+    color: #fff;
+    border-color: rgba(111, 83, 148, 0.3);
+    background: linear-gradient(
+        110deg,
+        #80649f 0%,
+        #9b81b8 50%,
+        #74598f 100%
+    );
+    background-size: 180% 100%;
+    box-shadow:
+        0 8px 20px rgba(83, 59, 112, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+html.light-mode .cv-button-primary:hover,
+body.light-mode .cv-button-primary:hover {
+    box-shadow:
+        0 12px 26px rgba(83, 59, 112, 0.23),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+html.light-mode .cv-button-secondary,
+body.light-mode .cv-button-secondary {
+    color: #63349c;
+    border-color: rgba(122, 72, 177, 0.3);
+    background: linear-gradient(
+        110deg,
+        rgba(238, 223, 255, 0.9),
+        rgba(255, 255, 255, 0.92)
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+html.light-mode .cv-button-secondary:hover,
+body.light-mode .cv-button-secondary:hover {
+    color: #4c247e;
+    border-color: rgba(122, 72, 177, 0.55);
+    background: linear-gradient(110deg, #e8d4ff, #fff 85%);
+    box-shadow:
+        0 12px 25px rgba(104, 57, 164, 0.13),
+        0 0 20px rgba(155, 104, 220, 0.1);
+}
+
+html.light-mode .cv-note svg,
+body.light-mode .cv-note svg {
+    color: #7746b6;
+}
+
+/* PAGE TRANSITIONS — KEEP THE NAVBAR FIXED */
+
+body.page-entering {
+    animation: cvPageEnter 0.45s ease both;
+}
+
+body.page-leaving {
+    animation: cvPageLeave 0.22s ease both;
+}
+
+@keyframes cvPageEnter {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cvPageLeave {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* MOTION */
+
+@keyframes cvTitleFlow {
+    to {
+        background-position: 250% center;
+    }
+}
+
+@keyframes cvFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .cv-page {
+        padding-top: 135px;
+    }
+
+    .cv-panel {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 38px;
+    }
+
+    .cv-document-art {
+        min-height: 320px;
+    }
+
+    .cv-content {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .cv-page {
+        width: min(100% - 28px, 500px);
+        padding-top: 115px;
+        padding-bottom: 70px;
+    }
+
+    .cv-heading {
+        margin-bottom: 32px;
+    }
+
+    .cv-heading h1 {
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+        letter-spacing: -1.5px;
+    }
+
+    .cv-heading > p {
+        font-size: 0.88rem;
+    }
+
+    .cv-eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+
+    .cv-panel {
+        gap: 20px;
+        padding: 25px 19px 28px;
+        border-radius: 24px;
+    }
+
+    .cv-document-art {
+        min-height: 290px;
+    }
+
+    .cv-paper {
+        width: 190px;
+        min-height: 250px;
+        padding: 22px 19px;
+    }
+
+    .cv-orbit {
+        width: 245px;
+        height: 245px;
+    }
+
+    .orbit-two {
+        width: 275px;
+        height: 275px;
+    }
+
+    .cv-floating-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+    }
+
+    .floating-icon-one {
+        right: 0;
+    }
+
+    .floating-icon-two {
+        left: 0;
+    }
+
+    .cv-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .cv-file-info {
+        gap: 10px;
+        padding: 13px;
+    }
+
+    .file-icon {
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .file-details strong {
+        font-size: 0.73rem;
+    }
+
+    .file-details span {
+        font-size: 0.66rem;
+    }
+
+    .file-extension {
+        padding: 5px 6px;
+        font-size: 0.58rem;
+    }
+
+    .cv-button {
+        min-height: 54px;
+        padding: 14px 16px;
+        font-size: 0.82rem;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .cv-heading,
+    .cv-panel,
+    body.page-entering,
+    body.page-leaving {
+        animation: none;
+    }
+
+    .cv-heading h1 span {
+        animation: none;
+    }
+
+    .cv-panel,
+    .cv-paper,
+    .cv-button,
+    .cv-floating-icon,
+    .cv-orbit,
+    .cv-file-info {
+        transition: none;
+    }
+}
+
+/* NAVBAR — HIDE WHILE SCROLLING; SHOW AGAIN AT THE TOP */
+
+#navbar {
+    transition:
+        top 0.35s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+#navbar.hide-navbar {
+    top: -160px !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#navbar:not(.hide-navbar) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* =========================================
+   DOWNLOAD CV BUTTON — CONSISTENT PURPLE
+========================================= */
+
+html body a.cv-button-primary,
+html.light-mode body a.cv-button-primary,
+body.light-mode a.cv-button-primary {
+    color: #ffffff !important;
+
+    background: linear-gradient(
+        110deg,
+        #68449a 0%,
+        #8057b4 50%,
+        #5d3b8a 100%
+    ) !important;
+
+    border: 1px solid rgba(199, 162, 255, 0.45) !important;
+    background-size: 180% 100% !important;
+
+    transition:
+        background-position 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.35s ease !important;
+}
+
+/* DARK MODE SHADOW */
+html:not(.light-mode) body a.cv-button-primary {
+    box-shadow:
+        0 8px 22px rgba(104, 68, 154, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+/* LIGHT MODE SHADOW */
+html.light-mode body a.cv-button-primary,
+body.light-mode a.cv-button-primary {
+    box-shadow:
+        0 8px 20px rgba(72, 42, 105, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+/* HOVER — BOTH MODES */
+html body a.cv-button-primary:hover,
+html.light-mode body a.cv-button-primary:hover,
+body.light-mode a.cv-button-primary:hover {
+    background-position: 100% 50% !important;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 26px rgba(104, 68, 154, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+}
+
+
+/* ========================================
+   ANIMATED THEME TOGGLE ICON
+======================================== */
+
+#theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+#theme-icon svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+    overflow: visible;
+    animation: epicIconAppear 0.45s cubic-bezier(.2, .8, .2, 1);
+}
+
+#theme-icon .epic-sun {
+    filter:
+        drop-shadow(0 0 3px rgba(255, 198, 110, .8))
+        drop-shadow(0 0 8px rgba(255, 139, 202, .45));
+}
+
+#theme-icon .epic-moon {
+    filter:
+        drop-shadow(0 0 4px rgba(205, 166, 255, .9))
+        drop-shadow(0 0 10px rgba(130, 80, 232, .5));
+}
+
+#theme-icon .epic-sun-rays {
+    transform-box: view-box;
+    transform-origin: center;
+    animation: epicSunSpin 24s linear infinite;
+}
+
+#theme-toggle:hover #theme-icon .epic-sun-rays {
+    animation-duration: 5s;
+}
+
+#theme-toggle:hover #theme-icon svg {
+    filter: drop-shadow(0 0 9px rgba(199, 162, 255, .9));
+}
+
+@keyframes epicSunSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes epicIconAppear {
+    from {
+        opacity: 0;
+        transform: scale(.55) rotate(-25deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #theme-icon svg,
+    #theme-icon .epic-sun-rays {
+        animation: none;
+    }
+}

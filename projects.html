@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10051f">
+    <title>My Projects | Sarah Faith A. Mirones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body class="page-entering">
+    <div class="background-effects" aria-hidden="true">
+        <div class="wave wave-one"></div><div class="wave wave-two"></div>
+        <div class="wave wave-three"></div><div class="wave wave-four"></div>
+    </div>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo"><img src="logo.png" alt="Sarah logo"><div><strong>Sarah</strong><small>Portfolio</small></div></a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger" aria-label="Open navigation menu"><span></span><span></span><span></span></label>
+        <div class="nav-right">
+            <div class="links">
+                <a href="index.html">Home</a><a href="about.html">About</a><a href="skills.html">Skills</a>
+                <a href="experience.html">Experience</a><a href="projects.html" class="active" aria-current="page">Projects</a>
+                <a href="education.html">Education</a><a href="cv.html">CV</a><a href="contact.html">Contact</a>
+            </div>
+            
+<button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch theme">
+    <span class="theme-icon" id="theme-icon">☀</span>
+</button>
+
+        </div>
+    </nav>
+
+    <main class="projects-page">
+        <header class="projects-heading">
+            <h1>My <span>Projects</span></h1>
+            <p>A collection of digital artwork and design projects created through creativity, practice, and learning.</p>
+        </header>
+
+        <section class="project-controls" aria-label="Search and filter projects">
+            <div class="search-filter-row">
+                <label class="project-search" for="project-search">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg>
+                    <input type="search" id="project-search" placeholder="Search projects by name, category, or tool..." autocomplete="off">
+                    <button type="button" id="clear-search" aria-label="Clear search">&times;</button>
+                </label>
+                <button type="button" class="filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="filter-panel">
+                    <svg class="filter-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"></path><circle cx="8" cy="7" r="1.5"></circle><circle cx="15" cy="12" r="1.5"></circle><circle cx="12" cy="17" r="1.5"></circle></svg>
+                    <span>Filters</span><span class="filter-count" id="filter-count">0</span>
+                    <svg class="filter-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg>
+                </button>
+            </div>
+            <div class="filter-panel" id="filter-panel" hidden>
+                <div class="filter-panel-heading"><div><span class="filter-kicker">REFINE YOUR SEARCH</span><h2>Find a project</h2></div>
+                    <button type="button" class="reset-filters" id="reset-filters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11a9 9 0 1 1 2.6 6.4M3 4v7h7"></path></svg>Reset filters</button>
+                </div>
+                <div class="filter-fields">
+                    <label class="filter-field"><span>YEAR</span><select id="year-filter"><option value="all">All Years</option><option value="2026">2026</option></select></label>
+                    <label class="filter-field"><span>SOFTWARE / TOOL</span><select id="tool-filter"><option value="all">All Tools</option><option value="gimp">GIMP</option><option value="figma">Figma</option></select></label>
+                    <label class="filter-field"><span>PROJECT TYPE</span><select id="type-filter"><option value="all">All Types</option><option value="digital-illustration">Digital Illustration</option><option value="logo-design">Logo Design</option><option value="digital-design">Digital Design</option><option value="typography">Typography</option><option value="ui-design">UI Design &amp; Prototyping</option></select></label>
+                </div>
+                <p class="filter-note">Combine filters to narrow down the projects displayed below.</p>
+            </div>
+            <div class="category-section">
+                <div class="category-heading"><span class="category-label">BROWSE BY CATEGORY</span><span class="category-line"></span></div>
+                <div class="category-list" id="category-list">
+                    <button type="button" class="category-chip active" data-category="all" aria-pressed="true"><span class="chip-icon">✦</span><span>All Projects</span><span class="category-number" id="all-projects-count">12</span></button>
+                    <button type="button" class="category-chip" data-category="graphic-design" aria-pressed="false">Graphic Design</button>
+                    <button type="button" class="category-chip" data-category="digital-illustration" aria-pressed="false">Digital Illustration</button>
+                    <button type="button" class="category-chip" data-category="logo-design" aria-pressed="false">Logo Design</button>
+                    <button type="button" class="category-chip" data-category="digital-design" aria-pressed="false">Digital Design</button>
+                    <button type="button" class="category-chip" data-category="typography" aria-pressed="false">Typography</button>
+                    <button type="button" class="category-chip" data-category="ui-design" aria-pressed="false">UI Design</button>
+                </div>
+            </div>
+            <div class="results-bar"><p id="results-count" aria-live="polite">Showing <strong>12</strong> of <strong>12</strong> projects</p><span class="results-decoration">CREATIVE COLLECTION <span>✦</span></span></div>
+        </section>
+
+        <section class="project-grid" id="project-grid" aria-label="Project gallery"></section>
+        <section class="empty-state" id="empty-state" hidden>
+            <div class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg></div>
+            <h2>No projects found</h2><p>Try another search or change your filters to see more projects.</p>
+            <button type="button" id="empty-reset" class="empty-reset">Show all projects</button>
+        </section>
+        <p class="projects-end-note"><span>✦</span> Every project is another opportunity to learn, explore, and create. <span>✦</span></p>
+    </main>
+
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+        <div class="project-modal-overlay" data-close-modal></div>
+        <section class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle" tabindex="-1">
+            <button type="button" class="project-modal-close" id="closeProjectModal" aria-label="Close project details">&times;</button>
+            <div class="project-modal-image"><img id="modalProjectImage" src="" alt=""><div class="modal-image-fallback" id="modalImageFallback" hidden><span>✦</span><p>Project preview unavailable</p></div></div>
+            <div class="project-modal-info">
+                <span class="project-modal-label">PROJECT DETAILS</span><h2 id="modalProjectTitle">Project Title</h2>
+                <p class="project-modal-category" id="modalProjectCategory">Project Category</p><div class="project-modal-divider"></div>
+                <h3>About This Project</h3><p id="modalProjectDescription"></p>
+                <div class="project-modal-meta">
+                    <div><span class="meta-label">PROJECT TYPE</span><p id="modalProjectType"></p></div>
+                    <div><span class="meta-label">DATE CREATED</span><p id="modalProjectDate"></p></div>
+                    <div><span class="meta-label">TOOL USED</span><p id="modalProjectTool"></p></div>
+                    <div><span class="meta-label">CREATOR'S ROLE</span><p id="modalProjectRole"></p></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact"><h3>Sarah Faith A. Mirones</h3><p>IT Student &amp; Aspiring Developer</p>
+                <div class="social-links">
+                    <a href="mailto:faithmirones.08@gmail.com" aria-label="Send me an email" title="Email me"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                    <a href="https://www.linkedin.com/in/sarahfaithmirones" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.68H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.32 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.1 20.45H3.54V9H7.1v11.45z"/></svg></a>
+                    <a href="https://github.com/faithmirones08" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.51-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.59 1.21 3.22.93.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.14a10.7 10.7 0 0 1 5.6 0c2.14-1.44 3.08-1.14 3.08-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.6 5.23-5.08 5.51.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8z"/></svg></a>
+                </div>
+            </div>
+            <div class="quick-links"><h3>Quick Links</h3><div class="quick-grid"><a href="index.html">Home</a><a href="about.html">About</a><a href="skills.html">Skills</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="education.html">Education</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></div></div>
+        </div>
+        <div class="footer-bottom"><p>Copyright © 2026 Sarah Faith A. Mirones. All Rights Reserved.</p></div>
+    </footer>
+
+<script>
+const projects = [
+ {title:"Grapes",slug:"grapes",image:"images/grapes.png",alt:"Grapes digital illustration",type:"digital-illustration",typeLabel:"Digital Illustration",categories:["graphic-design","digital-illustration"],tool:"gimp",date:"August 14, 2026",year:"2026",role:"Digital Artist",description:"This artwork uses lines, shapes, form, space, color, and texture. Curved lines outline the grapes, stem, and leaves, while overlapping circular shapes form the bunch of grapes. Purple and green colors make the fruits and leaves easy to recognize. The strokes and highlights add texture. Asymmetrical balance is shown through the different sizes and shapes of the grapes and leaf. Rhythm is created by the repeated circular shapes, while emphasis is placed on the purple grapes."},
+ {title:"Vertical Logo",slug:"vertical-logo",image:"images/vertical-logo.png",alt:"Vertical personal logo design",type:"logo-design",typeLabel:"Logo Design",categories:["graphic-design","logo-design"],tool:"gimp",date:"August 31, 2026",year:"2026",role:"Logo Designer",description:"This logo uses lines, shapes, space, and color. Curved lines form the letter S, while the small star adds a simple detail. The white background gives space around the logo, and the dark purple color keeps the design consistent. Asymmetrical balance is created by the large letter S and the smaller star. Emphasis is placed on the letter S, while the matching colors create unity."},
+ {title:"Horizontal Logo",slug:"horizontal-logo",image:"images/horizontal-logo.png",alt:"Horizontal personal logo design",type:"logo-design",typeLabel:"Logo Design",categories:["graphic-design","logo-design"],tool:"gimp",date:"August 31, 2026",year:"2026",role:"Logo Designer",description:"This logo uses lines, shapes, space, and color. The large letter S, vertical line, and name create a horizontal layout. The white background provides space between the elements, while dark purple keeps the design consistent. Asymmetrical balance is created by the letter S on the left and the name on the right. Emphasis is placed on the letter S, while the consistent color creates unity."},
+ {title:"Icon",slug:"icon",image:"images/icon.png",alt:"Personal brand icon design",type:"logo-design",typeLabel:"Logo Design",categories:["graphic-design","logo-design"],tool:"gimp",date:"August 31, 2026",year:"2026",role:"Logo Designer",description:"This icon uses shapes, space, and color. The circular shape serves as the background, while the letter S and star form the main details. Dark purple and white create contrast. The circular background gives the icon a balanced appearance. Emphasis is placed on the letter S, while the matching colors and simple shapes create unity."},
+ {title:"Badge",slug:"badge",image:"images/badge.png",alt:"Oval personal brand badge design",type:"logo-design",typeLabel:"Logo Design",categories:["graphic-design","logo-design"],tool:"gimp",date:"August 31, 2026",year:"2026",role:"Logo Designer",description:"This design uses lines, shapes, space, and color. The oval outline creates a border around the letter S and the small star, while the white space keeps the design clean. Dark purple and white create contrast. Emphasis is placed on the letter S because it is the largest element. The matching color and simple shapes create unity."},
+ {title:"Brew Haven Logo",slug:"haven-logo",image:"images/haven-logo.png",alt:"Brew Haven coffee brand logo",type:"digital-design",typeLabel:"Digital Design",categories:["graphic-design","digital-design"],tool:"gimp",date:"September 7, 2026",year:"2026",role:"Digital Designer",description:"This logo uses lines, shapes, form, color, and texture. Dark outlines define the coffee cup, heart, and lettering, while the curved cup gives it a rounded appearance. Brown and orange create a warm coffee theme, and the textured coloring gives the artwork a hand-drawn look. Emphasis is placed on the coffee cup and Brew Haven text. The matching colors and coffee-related elements create unity."},
+ {title:"Banner Ads",slug:"banner-ads",image:"images/banner-ads.png",alt:"Brew Haven promotional banner advertisement",type:"digital-design",typeLabel:"Digital Design",categories:["graphic-design","digital-design"],tool:"gimp",date:"September 7, 2026",year:"2026",role:"Digital Designer",description:"This advertisement uses lines, shapes, form, space, and color. Curved lines decorate the corners, while an orange circle highlights the Try it now message. The coffee cup and pumpkin use shading to add depth. Asymmetrical balance is created by the text on the left and the large coffee image on the right. Orange and brown contrast with the cream background, while emphasis is placed on the drink."},
+ {title:"IKEA Typography",slug:"ikea-typography",image:"images/ikea-typography.png",alt:"IKEA typography design",type:"typography",typeLabel:"Typography",categories:["graphic-design","typography"],tool:"gimp",date:"September 18, 2026",year:"2026",role:"Graphic Designer",description:"This design uses lines, shapes, space, and color. Large letters create bold shapes, while a thin blue line separates the main text from the categories below. Blue text contrasts with the white background, making the words easy to read. Emphasis is placed on IKEA because it is the largest text. The consistent color and simple layout create unity, while empty space keeps the design readable."},
+ {title:"Landing Page Banner",slug:"landing-page-banner",image:"images/landing-page-banner.png",alt:"Pumpkin Spice Latte landing page banner",type:"digital-design",typeLabel:"Digital Design",categories:["graphic-design","digital-design"],tool:"gimp",date:"September 7, 2026",year:"2026",role:"Digital Designer",description:"This banner uses lines, shapes, form, color, and texture. Curved lines and orange waves decorate the background, while a circle highlights the Try it now message. Shading adds depth to the coffee cup and pumpkin. Asymmetrical balance is created by the images on the right and text on the left. Emphasis is placed on Pumpkin Spice Latte through its large decorative lettering. Cream, orange, and brown create unity."},
+ {title:"Newsletter Header",slug:"newsletter-header",image:"images/newsletter-header.png",alt:"Pumpkin Spice Latte newsletter header",type:"digital-design",typeLabel:"Digital Design",categories:["graphic-design","digital-design"],tool:"gimp",date:"September 7, 2026",year:"2026",role:"Digital Designer",description:"This header uses lines, shapes, form, and color. Curved lines and orange shapes decorate the corners, while the coffee cup and pumpkin add depth. The cream background and warm colors match the autumn theme. Asymmetrical balance is created by the coffee image on the right and text on the left. The consistent colors and coffee theme create unity."},
+ {title:"Social Media Post",slug:"social-media-post",image:"images/social-media-post.png",alt:"Pumpkin Spice Latte social media promotional post",type:"digital-design",typeLabel:"Digital Design",categories:["graphic-design","digital-design"],tool:"gimp",date:"September 7, 2026",year:"2026",role:"Digital Designer",description:"This social media post uses lines, shapes, form, space, and color. Curved lines decorate the corners, while an orange circle highlights the Try it now message. The coffee cup and pumpkin use shading to add depth. Asymmetrical balance is created by the image on the right and text on the left. Orange details contrast with the cream background, while matching colors create unity."},
+ {title:"Figma UI Design & Prototype",slug:"figma-ui-design",image:"images/figma-ui-design.png",alt:"System interface design created in Figma",type:"ui-design",typeLabel:"UI Design & Prototyping",categories:["graphic-design","ui-design"],tool:"figma",date:"October 2026",year:"2026",role:"UI Designer",description:"This wireframe shows the layout of my portfolio website, which consists of eight panels: Home, About, Skills, Experience, Projects, Education, CV, and Contact. The Home panel serves as the main page, while the About panel contains my personal information. The Skills panel presents my technical and professional skills, and the Experience and Education panels show my background. The Projects panel displays my works, while the CV panel provides options to view or download my CV. Lastly, the Contact panel allows visitors to send me a message. The arrows show how users can navigate between the pages."}
+];
+
+const projectGrid=document.getElementById("project-grid"),searchInput=document.getElementById("project-search"),clearSearch=document.getElementById("clear-search"),filterToggle=document.getElementById("filter-toggle"),filterPanel=document.getElementById("filter-panel"),yearFilter=document.getElementById("year-filter"),toolFilter=document.getElementById("tool-filter"),typeFilter=document.getElementById("type-filter"),categoryButtons=[...document.querySelectorAll(".category-chip")],resultsCount=document.getElementById("results-count"),filterCount=document.getElementById("filter-count"),emptyState=document.getElementById("empty-state"),themeToggle=document.getElementById("theme-toggle"),themeIcon=document.getElementById("theme-icon"),themeText=document.getElementById("theme-text"),menuToggle=document.getElementById("menu-toggle"),navbar=document.getElementById("navbar");
+const projectModal=document.getElementById("projectModal"),closeProjectModal=document.getElementById("closeProjectModal"),modalProjectImage=document.getElementById("modalProjectImage"),modalImageFallback=document.getElementById("modalImageFallback"),modalProjectTitle=document.getElementById("modalProjectTitle"),modalProjectCategory=document.getElementById("modalProjectCategory"),modalProjectDescription=document.getElementById("modalProjectDescription"),modalProjectType=document.getElementById("modalProjectType"),modalProjectDate=document.getElementById("modalProjectDate"),modalProjectTool=document.getElementById("modalProjectTool"),modalProjectRole=document.getElementById("modalProjectRole");
+let activeCategory="all",lastFocusedElement=null;
+function escapeHTML(value){return String(value).replace(/[&<>"']/g,character=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "'":"&#39;"})[character]);}
+function renderProjects(){
+ projectGrid.innerHTML=projects.map((project,index)=>`<article class="project-card" data-title="${escapeHTML(project.title)}" data-year="${project.year}" data-category="${project.categories.join(" ")}" data-type="${project.type}" data-tool="${project.tool}" data-date="${escapeHTML(project.date)}">
+ <a class="project-image-link" href="#projectModal" aria-label="View ${escapeHTML(project.title)} project" data-project-slug="${project.slug}"><div class="project-image"><img src="${project.image}" alt="${escapeHTML(project.alt)}" loading="${index<3?"eager":"lazy"}"><span class="image-overlay"></span><span class="image-view">View Project <span>↗</span></span><span class="image-index">${String(index+1).padStart(2,"0")}</span><span class="image-fallback" hidden><span class="fallback-symbol">✦</span><span>Image unavailable</span><small>${escapeHTML(project.image)}</small></span></div></a>
+ <div class="project-card-body"><div class="project-meta"><span class="project-type">${escapeHTML(project.typeLabel)}</span><span class="project-year">${project.year}</span></div><h2><a href="#projectModal" data-project-slug="${project.slug}">${escapeHTML(project.title)}</a></h2><p>${escapeHTML(project.description)}</p><div class="project-card-footer"><span class="tool-tag"><span class="tool-dot"></span>${escapeHTML(project.tool.toUpperCase())}</span><a class="project-arrow" href="#projectModal" data-project-slug="${project.slug}" aria-label="View ${escapeHTML(project.title)} details">↗</a></div></div></article>`).join("");
+ projectGrid.querySelectorAll(".project-image img").forEach(img=>img.addEventListener("error",()=>{img.hidden=true;const fallback=img.parentElement.querySelector(".image-fallback");if(fallback)fallback.hidden=false;}));
+}
+renderProjects();
+document.getElementById("all-projects-count").textContent=projects.length;
+function openProjectModal(project){if(!project)return;lastFocusedElement=document.activeElement;modalProjectImage.hidden=false;modalImageFallback.hidden=true;modalProjectImage.src=project.image;modalProjectImage.alt=project.alt;modalProjectTitle.textContent=project.title;modalProjectCategory.textContent=project.categories.map(category=>category.replaceAll("-"," ")).join(" · ");modalProjectDescription.textContent=project.description;modalProjectType.textContent=project.typeLabel;modalProjectDate.textContent=project.date;modalProjectTool.textContent=project.tool.toUpperCase();modalProjectRole.textContent=project.role;modalProjectImage.onerror=()=>{modalProjectImage.hidden=true;modalImageFallback.hidden=false;};projectModal.classList.add("active");projectModal.setAttribute("aria-hidden","false");document.body.classList.add("modal-open");closeProjectModal.focus();}
+function closeModal(){projectModal.classList.remove("active");projectModal.setAttribute("aria-hidden","true");document.body.classList.remove("modal-open");modalProjectImage.onerror=null;if(lastFocusedElement&&document.contains(lastFocusedElement))lastFocusedElement.focus();}
+projectGrid.addEventListener("click",event=>{const trigger=event.target.closest("[data-project-slug]");if(!trigger)return;event.preventDefault();openProjectModal(projects.find(project=>project.slug===trigger.dataset.projectSlug));});
+closeProjectModal.addEventListener("click",closeModal);projectModal.querySelector("[data-close-modal]").addEventListener("click",closeModal);
+document.addEventListener("keydown",event=>{if(event.key==="Escape"&&projectModal.classList.contains("active"))closeModal();if(event.key==="Tab"&&projectModal.classList.contains("active")){event.preventDefault();closeProjectModal.focus();}});
+
+function updateThemeButton() {
+    const isLight = document.body.classList.contains("light-mode");
+
+    themeIcon.innerHTML = isLight
+        ? `<svg class="epic-sun" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <defs>
+                <linearGradient id="sunCore" x1="8" y1="7" x2="32" y2="33">
+                    <stop offset="0%" stop-color="#FFF6C9"/>
+                    <stop offset="45%" stop-color="#FFC76E"/>
+                    <stop offset="100%" stop-color="#FF8BCA"/>
+                </linearGradient>
+                <linearGradient id="sunRay" x1="7" y1="7" x2="33" y2="33">
+                    <stop offset="0%" stop-color="#FFF1AD"/>
+                    <stop offset="55%" stop-color="#FFC16F"/>
+                    <stop offset="100%" stop-color="#C58BFF"/>
+                </linearGradient>
+            </defs>
+            <circle cx="20" cy="20" r="18" fill="#FFC66E" opacity=".12"/>
+            <g class="epic-sun-rays" stroke="url(#sunRay)" stroke-width="2.2" stroke-linecap="round">
+                <path d="M20 2.8V7 M20 33V37.2 M2.8 20H7 M33 20H37.2 M7.8 7.8L11 11 M29 29L32.2 32.2 M32.2 7.8L29 11 M11 29L7.8 32.2"/>
+            </g>
+            <circle cx="20" cy="20" r="10.2" fill="url(#sunCore)"/>
+            <circle cx="16.5" cy="16.3" r="3.1" fill="#fff" opacity=".7"/>
+            <path d="M13.5 22.5C16 27 23 28 27 22" stroke="#FFF9E8" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M30.5 5.5V10 M28 7.75H33" stroke="#FFE7A6" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="7" cy="16" r="1" fill="#FFF0C1"/>
+        </svg>`
+        : `<svg class="epic-moon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <defs>
+                <linearGradient id="moonCore" x1="7" y1="5" x2="31" y2="35">
+                    <stop offset="0%" stop-color="#FFFFFF"/>
+                    <stop offset="38%" stop-color="#E8D4FF"/>
+                    <stop offset="72%" stop-color="#B78AFF"/>
+                    <stop offset="100%" stop-color="#8250E8"/>
+                </linearGradient>
+                <linearGradient id="moonOrbit" x1="3" y1="5" x2="37" y2="35">
+                    <stop offset="0%" stop-color="#F3DCFF"/>
+                    <stop offset="50%" stop-color="#A777F5"/>
+                    <stop offset="100%" stop-color="#D5A6FF"/>
+                </linearGradient>
+            </defs>
+            <ellipse cx="20" cy="20" rx="17" ry="10.5" transform="rotate(-35 20 20)" stroke="url(#moonOrbit)" stroke-opacity=".75" stroke-width=".8" stroke-dasharray="2.2 3.2"/>
+            <path d="M27.8 25.4C20.4 25.1 14.7 19 15.2 11.7C15.4 8.8 16.5 6.2 18.4 4.2C10.4 5 4.5 12.1 5.1 20.1C5.7 28.4 12.8 34.5 21.1 33.9C27.4 33.4 32.7 29 34.1 23C32.2 24.6 30 25.4 27.8 25.4Z" fill="url(#moonCore)" stroke="#E7D3FF" stroke-width=".8"/>
+            <path d="M10.2 22.4C11.5 27.1 15.6 30.1 20.3 30.2" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M29 4.5V10 M26.25 7.25H31.75" stroke="#F2D9FF" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M33 14V17.5 M31.25 15.75H34.75" stroke="#CBA7FF" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="8" cy="7" r="1.1" fill="#FFFFFF"/>
+            <circle cx="34" cy="29" r=".9" fill="#E4C6FF"/>
+        </svg>`;
+
+    const label = isLight ? "Switch to dark mode" : "Switch to light mode";
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.title = label;
+}
+
+function setTheme(isLight) {
+    document.body.classList.toggle("light-mode", isLight);
+    document.documentElement.classList.toggle("light-mode", isLight);
+
+    try {
+        localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
+    } catch (error) {}
+
+    updateThemeButton();
+}
+
+let savedTheme = "dark";
+
+try {
+    savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+} catch (error) {}
+
+setTheme(savedTheme === "light");
+
+themeToggle.addEventListener("click", () => {
+    setTheme(!document.body.classList.contains("light-mode"));
+    menuToggle.checked = false;
+});
+
+let lastScrollY=window.scrollY;function handleNavbarScroll(){const currentScrollY=window.scrollY;navbar.classList.toggle("scrolled",currentScrollY>40);if(currentScrollY<=10||currentScrollY<lastScrollY)navbar.classList.remove("hide-navbar");else if(currentScrollY>lastScrollY&&currentScrollY>100){navbar.classList.add("hide-navbar");menuToggle.checked=false;}lastScrollY=currentScrollY;}window.addEventListener("scroll",handleNavbarScroll,{passive:true});handleNavbarScroll();
+function updateFilterCount(){let count=0;if(yearFilter.value!=="all")count++;if(toolFilter.value!=="all")count++;if(typeFilter.value!=="all")count++;filterCount.textContent=count;filterToggle.classList.toggle("has-filters",count>0);}
+function applyFilters(){const searchTerm=searchInput.value.trim().toLowerCase(),selectedYear=yearFilter.value,selectedTool=toolFilter.value,selectedType=typeFilter.value;let visibleCount=0;projectGrid.querySelectorAll(".project-card").forEach(card=>{const categories=(card.dataset.category||"").split(" ");const searchableText=[card.dataset.title,card.dataset.category,card.dataset.type,card.dataset.tool,card.dataset.date,card.querySelector(".project-card-body p")?.textContent].join(" ").toLowerCase();const visible=(!searchTerm||searchableText.includes(searchTerm))&&(selectedYear==="all"||card.dataset.year===selectedYear)&&(selectedTool==="all"||card.dataset.tool===selectedTool)&&(selectedType==="all"||card.dataset.type===selectedType)&&(activeCategory==="all"||categories.includes(activeCategory));card.hidden=!visible;if(visible)visibleCount++;});resultsCount.innerHTML=`Showing <strong>${visibleCount}</strong> of <strong>${projects.length}</strong> projects`;emptyState.hidden=visibleCount!==0;projectGrid.hidden=visibleCount===0;clearSearch.classList.toggle("visible",searchInput.value.length>0);updateFilterCount();}
+searchInput.addEventListener("input",applyFilters);yearFilter.addEventListener("change",applyFilters);toolFilter.addEventListener("change",applyFilters);typeFilter.addEventListener("change",applyFilters);clearSearch.addEventListener("click",()=>{searchInput.value="";applyFilters();searchInput.focus();});
+filterToggle.addEventListener("click",()=>{const opening=filterPanel.hidden;filterPanel.hidden=!opening;filterToggle.setAttribute("aria-expanded",String(opening));filterToggle.classList.toggle("is-open",opening);});
+categoryButtons.forEach(button=>button.addEventListener("click",()=>{activeCategory=button.dataset.category;categoryButtons.forEach(chip=>{const active=chip===button;chip.classList.toggle("active",active);chip.setAttribute("aria-pressed",String(active));});applyFilters();}));
+function resetAllFilters(){searchInput.value="";yearFilter.value="all";toolFilter.value="all";typeFilter.value="all";activeCategory="all";categoryButtons.forEach(button=>{const active=button.dataset.category==="all";button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));});applyFilters();}
+document.getElementById("reset-filters").addEventListener("click",resetAllFilters);document.getElementById("empty-reset").addEventListener("click",resetAllFilters);applyFilters();
+document.querySelectorAll(".links a, .quick-grid a").forEach(link=>link.addEventListener("click",event=>{const destination=new URL(link.href,window.location.href);if(destination.origin===window.location.origin&&destination.pathname!==window.location.pathname&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&event.button===0){event.preventDefault();document.body.classList.add("page-leaving");window.setTimeout(()=>{window.location.href=link.href;},220);}menuToggle.checked=false;}));
+</script>
+</body>
+</html>
