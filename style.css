@@ -1250,3 +1250,25 @@ body.light-mode .footer-bottom p {
 }
 
 
+/* =========================================
+   GLOBAL FOOTER POSITION
+   Applies to all portfolio pages
+========================================= */
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body > main {
+    flex: 1 0 auto;
+}
+
+body > footer {
+    flex-shrink: 0;
+}
